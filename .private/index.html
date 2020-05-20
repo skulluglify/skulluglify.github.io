@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <title>skulluglify - webpage</title>
+  <link rel='stylesheet' href='/assets/fonts/firacode/default.css'>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      padding: 0px;
+      margin: 0 auto;
+    }
+    body {
+      font: 14px/1.5em 'Fira Code';
+    }
+    .code {
+      font-feature-settings: 'calt' 1;
+      text-rendering: optimizeLegibility;
+      /* margin: 5em auto; */
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .regular { 
+      /* 300 ~ 700 */
+      /* width: 420px; */
+      width: 64%;
+      padding: 0px;
+      margin: 0;
+      text-align: left;
+      font-weight: 400; 
+    }
+    div#container {
+      width: 100%;
+      /* height: 100%; */
+      padding: 0px;
+      margin: 0 auto;
+      /* margin-left: 12px; */
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-flex-direction: column; 
+      flex-direction: column; 
+      overflow: hidden;
+    }
+  </style>
+  <script type='text/javascript'>
+    function show(a,b) {
+      return `<h3 class='regular'>${a}: <span class='bold' style='color: rgb(32, 40, 204);'>${b}</span></h3>`
+    }
+    function display(type, rgx=null, nav=null, func=show) {
+      const _rgx = (rgx ? rgx : type)
+      const _nav = (nav in navigator ? navigator[nav] : navigator.userAgent)
+      const _res = String(RegExp(_rgx).test(_nav)).toLocaleUpperCase()
+      if (typeof func == 'function') return (func)(type, _res)
+      return _res
+    }
+    function display_memory(func = show) {
+      const _mem = navigator.deviceMemory
+      if (typeof func == 'function') return (func)('Memory', _mem + 'gb')
+      return _mem
+    }
+    async function info_battery(callback = null) {
+      const _bat = await navigator.getBattery()
+      const _per = 'level' in _bat ? parseInt(_bat.level * 100) : null
+      if (typeof callback == 'function') (callback)(_per)
+    }
+    window.addEventListener('load',(e) => {
+      if (document.readyState == 'complete') {
+        const _infolist = [
+          display('Android'),
+          display('OpenBSD'),
+          display('Windows', 'Win'),
+          display('Macintosh', 'Mac'),
+          display('Darwin'),
+          display('Linux'),
+          display('iPhone'),
+          display('iOS'),
+          display('x32', 'x86 |Win32|i386'),
+          display('x64', 'x86_64|Win64|x64|amd64'),
+          display_memory(show)
+        ]
+        function main() {
+          const container = document.querySelector('div#container')
+          container.innerHTML = null
+          _infolist.forEach((info) => {
+            container.innerHTML += info
+            return 0
+          })
+          info_battery((battery) => {
+            container.innerHTML += show('Battery', battery + '%')
+          })
+        }
+        (main)()
+        setInterval(main, 6000)
+      }
+    })
+  </script>
+  <body class='code'>
+    <div id='container'></div>
+  </body>
+</html>

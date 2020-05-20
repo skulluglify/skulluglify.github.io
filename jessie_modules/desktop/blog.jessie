@@ -1,0 +1,84 @@
+!config.virtual_better_look true
+
+-- pkg
+include "cssbuiltin"
+include "cssbuiltin/anim"
+include "normalize"
+include "scrollbar"
+include "sfx"
+-- include "anim/aos"
+include "fonts/roboto"
+
+include "emojis"
+include "gh/direct"
+
+-- src
+include "./index.css"
+include "./index.mjs"
+
+div#container
+
+    div .wrapper .center
+
+        div .first-look
+
+            include "./navbar"
+
+            include "sliderimages"
+
+            div .greeting-box .center
+
+                [[
+
+                    local.writerAnim = function (elem) {
+
+                        let desc = $(elem)?.target || null;
+
+                        if (desc) {
+
+                            let context = `${desc.textContent}`;
+                            function writer() {
+
+                                for (let i in context) {
+
+                                    let c = context[i];
+
+                                    setTimeout(() => {
+
+                                        desc.textContent += c;
+                                    }, i * 1e2);
+                                }
+
+                                desc.textContent = "";
+                            }
+                            setInterval(writer, context.length * 1e2);
+                            writer();
+                        }
+                    }
+                ]]
+
+                div .greeting-letter
+
+                    span .title .center .anim-fade-up.anim-inf style=font-family:roboto_condensedbold; << Skulluglify
+
+                    span .description .italic .anim-fade-down style=font-family:roboto_condensedbold_italic; >> EOF
+                        Evil Developer, work on python
+                        java, javascript, c++ and more.
+                        join us on my discord.
+                    EOF
+
+                    [[
+
+                        local.writerAnim(element);
+
+                    ]]
+
+        div style=background-image:url([%getUrl("./assets/bgs.png")%]);font-family:roboto_condensedbold; .content .center
+
+            div .wbreak .bold .roboto .example-code
+
+                span style=color:white; >> EOF
+
+                    BLOG
+
+                EOF

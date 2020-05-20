@@ -1,0 +1,181 @@
+:root {
+    --height: 720px;
+    --height-pagination-indicator: 42px;
+  }
+
+div.sliderimages {
+
+    width: 100%;
+    height: var(--height);
+
+    background-color: blue;
+
+    flex-direction: row !important;
+}
+
+div.sliderimages > div.si_image_view {
+
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 300vw;
+    height: 100%;
+    transform: translateX(-100vw);
+    flex-direction: row !important;
+}
+
+div.sliderimages > div.wrapper {
+
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+div.sliderimages > div.wrapper > div.si_previous_arrow {
+
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    width: 62px;
+    height: 192px;
+    margin-top: 0;
+    margin-right: -62px;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(240, 240, 240);
+    background-color: rgba(15, 15, 15, 0.6);
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    opacity: 0.4;
+    z-index: 4;
+}
+
+/* div.sliderimages div.wrapper div.si_previous_arrow:hover {
+
+    opacity: 1;
+} */
+
+
+div.sliderimages > div.wrapper > div.si_next_arrow {
+    
+    position: relative;
+    top: auto;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    width: 62px;
+    height: 192px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: -62px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 32px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(240, 240, 240);
+    background-color: rgba(15, 15, 15, 0.6);
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    opacity: 0.4;
+    z-index: 4;
+}
+
+/* div.sliderimages div.wrapper div.si_next_arrow:hover {
+
+    opacity: 1;
+} */
+
+div.sliderimages > div.wrapper > div.si_previous_arrow > div.si_previous_arrow_img, 
+div.sliderimages > div.wrapper > div.si_next_arrow > div.si_next_arrow_img {
+
+    width: 42px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+div.sliderimages > div.si_image_view > div.si_recycle_view {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: limegreen;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+div.sliderimages > div.pagination-indicator {
+
+    position: relative;
+    width: auto;
+    height: var(--height-pagination-indicator);
+    /* top: calc(var(--height) - 52px); */
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    padding-top: 0;
+    padding-right: 8px;
+    padding-bottom: 0;
+    padding-left: 8px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translateY(calc(calc(var(--height) / 2) - calc(var(--height-pagination-indicator) / 2)));
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    background: linear-gradient(180deg,rgba(255, 255, 255, 0.2),rgba(15, 15, 15, 0.4));
+    flex-direction: row !important;
+    z-index: 4;
+
+}
+
+div.sliderimages > div.pagination-indicator > div.bullet {
+
+    display: block;
+    position: relative;
+    /* margin: 0; */
+    margin-top: 0;
+    margin-right: 4px;
+    margin-bottom: 0;
+    margin-left: 4px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: background 0.5s;
+    /* background-color: rgb(128, 128, 128); */
+    background-color: rgba(15, 15, 15, 0.4);
+}
+
+/* div.sliderimages div.pagination-indicator div.bullet:hover {
+
+    background-color: rgba(255, 255, 255, 0.8) !important;
+
+} */

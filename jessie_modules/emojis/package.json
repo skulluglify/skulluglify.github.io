@@ -1,0 +1,25 @@
+{
+  "name": "emojis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "emojis.mjs",
+  "scripts": {
+    "test": "node emojis.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skulluglify/emojis.jsm.git"
+  },
+  "keywords": [
+    "emoji"
+  ],
+  "author": " <skulluglify@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skulluglify/emojis.jsm/issues"
+  },
+  "homepage": "https://github.com/skulluglify/emojis.jsm#readme",
+  "dependencies": {
+    "node-fetch": "^3.1.0"
+  }
+}

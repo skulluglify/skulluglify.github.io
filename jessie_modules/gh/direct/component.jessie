@@ -1,0 +1,8 @@
+
+
+    include "cssbuiltin"
+
+    source-set gh_logo_image ../assets/gh.svg
+
+    include "./widget.css"
+    include "./widget.mjs"

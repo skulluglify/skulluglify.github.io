@@ -1,0 +1,147 @@
+!config.virtual_better_look true
+
+include "cssbuiltin/anim"
+include "./index.css"
+
+[[
+
+    local.check_is_mobile = /(android|i?phone|i?watch|mobile)/i.test(navigator.userAgent.toLowerCase());
+
+    local.direct_view_page = (function direct_view_page(view) {
+
+        if (local.check_is_mobile) {
+
+            window.open(`viewport.html?view=${view}`)
+        
+        } else {
+
+            window.open(`index.html?view=${view}`)
+
+        }
+    });
+
+    local.navbar_box_css = q.unSpaceText(`
+
+        width: 92px;
+        height: 92px;
+        background-color: transparent;
+        color: white;
+        font-family: Roboto;
+        font-weight: 700;
+        /* border-right: 2px solid grey; */
+        box-sizing: border-box;
+
+    `).replaceAll("\n","");
+
+    local.keep_navbar_box_bg = "transparent";
+
+    local.navbar_box_hover = (element) => ({
+
+        focus: (e) => {
+
+            element.style.backgroundColor = "limegreen";
+        },
+
+        leave: (e) => {
+
+            element.style.backgroundColor = "skyblue";
+
+            setTimeout(() => {
+
+                element.style.backgroundColor = local.keep_navbar_box_bg;
+
+            }, 200);
+        }
+
+    });
+    
+]]
+
+div .navbar style=font-family:roboto_condensedbold;
+
+    div cstyle={% local.navbar_box_css %} .box .center .sfx_hit_button
+
+        [[
+
+            $(element).hover(local.navbar_box_hover(element));
+
+            // none direct
+
+        ]]
+
+        img src={%getUrl("./img/admin.x80.png")%} .anim-fade-up .anim-1s
+
+    div .box .center .sfx_hit_button
+
+        [[
+
+            $(element).hover(local.navbar_box_hover(element));
+
+            $(element).on("click", () => {
+
+                local.direct_view_page("home");
+            });
+
+        ]]
+
+        span .anim-fade-up .anim-2s << Home
+    
+    div .box .center .sfx_hit_button
+
+        [[
+
+            $(element).hover(local.navbar_box_hover(element));
+
+            $(element).on("click", () => {
+
+                local.direct_view_page("about");
+            });
+
+        ]]
+
+        span  .anim-fade-up .anim-3s << About
+
+    div .box .center .sfx_hit_button
+
+        [[
+
+            $(element).hover(local.navbar_box_hover(element));
+
+            $(element).on("click", () => {
+
+                local.direct_view_page("blog");
+            });
+
+        ]]
+
+        span .anim-fade-up .anim-4s << Blog
+
+    div .box .center .sfx_hit_button
+
+        [[
+
+            $(element).hover(local.navbar_box_hover(element));
+
+            $(element).on("click", () => {
+
+                local.direct_view_page("service");
+            });
+
+        ]]
+
+        span .anim-fade-up .anim-5s << Service
+
+    div .box .center .sfx_hit_button
+
+        [[
+
+            $(element).hover(local.navbar_box_hover(element));
+
+            $(element).on("click", () => {
+
+                local.direct_view_page("contact");
+            });
+
+        ]]
+
+        span .anim-fade-up .anim-6s << Contact

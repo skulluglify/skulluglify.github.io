@@ -1,0 +1,44 @@
+!config.virtual_better_look true
+
+    -- pkg
+    include "cssbuiltin"
+
+    -- src
+    include "./index.css"
+    include "./index.mjs"
+
+    [[
+
+        local.si_height = "720px";
+
+    ]]
+
+    div style=height:[%local.si_height%]; .sliderimages .center
+
+        div style=height:[%local.si_height%]; .si_image_view .center
+
+            source-get ./img/default.jpg
+            source-get ./img/colby-thomas.jpg
+            source-get ./img/jay-mantri.jpg
+            source-get ./img/john-towner.jpg
+            source-get ./img/juan-davila.jpg
+            source-get ./img/kurt-cotoaga.jpg
+            source-get ./img/mike-kotsch.jpg
+            source-get ./img/sergei-a.jpg
+            source-get ./img/timothy-eberly.jpg
+
+            div .si_recycle_view .center
+            div .si_recycle_view .center
+            div .si_recycle_view .center
+
+        div .wrapper .center .row .strecth-col
+
+            div .si_previous_arrow .center .sfx_hit_button
+
+                div style=background-image:url([%getUrl("./img/arrow.previous.svg")%]); .si_previous_arrow_img
+
+            div .si_next_arrow .center .sfx_hit_button
+
+                div style=background-image:url([%getUrl("./img/arrow.next.svg")%]); .si_next_arrow_img
+        
+        div .pagination-indicator .center

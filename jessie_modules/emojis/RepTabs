@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+for fname in `find . -type f | grep -iv \/node\_modules\/ | grep -Ei '\.(c|cc|cpp|h|py|pyx|sh|zsh|m?jsx?|component|jessie)$'`; do
+    cat<<<`cat "$fname" | sed 's/\t/    /g'`>"$fname"
+done

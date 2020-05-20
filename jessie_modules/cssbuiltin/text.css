@@ -1,0 +1,92 @@
+.bold {
+
+    font-style: normal;
+    font-weight: 700;
+}
+
+.italic {
+
+    font-style: italic;
+    font-weight: 500;
+}
+
+.wbreak {
+
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.roboto {
+
+    font-family: Roboto;
+}
+
+.monospace {
+
+    font-family: monospace;
+}
+
+.p12 {
+
+    font-size: 12px;
+}
+
+.p18 {
+
+    font-size: 18px;
+}
+
+.p24 {
+
+    font-size: 24px;
+}
+
+.p26 {
+
+    font-size: 26px;
+}
+
+.p32 {
+
+    font-size: 32px;
+}
+
+.p42 {
+
+    font-size: 42px;
+}
+
+.p46 {
+
+    font-size: 46px;
+}
+
+.p48 {
+
+    font-size: 48px;
+}
+
+.p52 {
+
+    font-size: 52px;
+}
+
+.p56 {
+
+    font-size: 56px;
+}
+
+.p72 {
+
+    font-size: 72px;
+}
+
+.p96 {
+
+    font-size: 96px;
+}
+
+.p144 {
+
+    font-size: 144px;
+}

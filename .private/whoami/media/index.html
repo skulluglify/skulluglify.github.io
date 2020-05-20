@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULTI MEDIA EXAMPLE</title>
+    <style>
+        html, html body, html body div#container {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html body video.bg {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            object-fit: fill;
+            z-index: 3;
+        }
+
+        html body div#container {
+            display: flex;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            background-image: url("/whoami/media/clip.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 5;
+        }
+
+        html body div#container div.blur {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 15, 0.4);
+            backdrop-filter: blur(6px);
+            z-index: 6;
+        }
+
+        html body div#container::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* background-color: limegreen; */
+            z-index: 4;
+        }
+
+        html body div#container div.play::before {
+            content: "";
+            display: flex;
+            position: absolute;
+            width: 128px;
+            height: 128px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            /* background-color: skyblue; */
+            overflow: hidden;
+            z-index: 6;
+        }
+
+        html body div#container div.play {
+            display: flex;
+            position: fixed;
+            width: 126px;
+            height: 126px;
+            left: calc(100vw / 2 - 32px);
+            border-radius: 8px;
+            align-items: center;
+            box-sizing: border-box;
+            justify-content: center;
+            flex-direction: column;
+            /* background-color: skyblue; */
+            opacity: 0.8;
+            overflow: hidden;
+            z-index: 7;
+        }
+
+        html body div#container div.play:hover {
+            opacity: 1;
+        }
+
+        html body div#container div.play::after {
+            content: "";
+            position: absolute;
+            left: -42px;
+            width: 96px;
+            height: 96px;
+            border-radius: 12px;
+            box-sizing: border-box;
+            background: linear-gradient(45deg, rgb(255, 0, 0), rgb(235, 135, 135));
+            transform: rotate(45deg);
+            overflow: hidden;
+            z-index: 8;
+        }
+    </style>
+    <script>
+
+            const audio = new Audio;
+
+            // audio.setAttribute("controls", "true")
+            audio.setAttribute("preload", "auto")
+
+            
+            const sour = document.createElement("source");
+            
+            sour.setAttribute("type", "audio/wav");
+            sour.setAttribute("src", "/whoami/media/rickroll/rickroll.wav")
+
+            audio.append(sour);
+
+            audio.loop = true;
+            audio.volume = 1;
+            //audio.autoplay = true //not work anymore
+
+            const vd = document.createElement("video");
+
+            // const fm = document.createElement("iframe");
+
+            // fm.setAttribute("width", "100%")
+            // fm.setAttribute("height", "100%")
+            // fm.setAttribute("src", "https://www.youtube.com/embed/WeoWk6X_bV4?autoplay=1&loop=1&mute=1&controls=0");
+            // fm.setAttribute("frameborder", "0")
+            // fm.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+            // fm.setAttribute("allowfullscreen", "true");
+
+            // fm.style.position = "fixed"
+            // fm.style.top = "fixed"
+            // fm.style.right = "fixed"
+            // fm.style.bottom = "fixed"
+            // fm.style.left = "fixed"
+
+            window.addEventListener("load", e => {
+
+                vd.setAttribute("width", "100%");
+                vd.setAttribute("height", "100%");
+                vd.setAttribute("preload", "auto");
+
+                vd.classList.add("bg")
+
+                const sourv = document.createElement("source");
+
+                sourv.setAttribute("type", "video/webm");
+                sourv.setAttribute("src", "/whoami/media/rickroll/rickroll.webm");
+
+                vd.append(sourv);
+                
+                vd.loop = true
+                vd.muted = true
+                vd.style.display = "none";
+                //vd.autoplay = true
+
+            })
+
+            document.addEventListener("readystatechange", e => {
+                if (document.readyState == "complete") {
+                    
+                    const container = document.querySelector("div#container");
+                    const btnplay = document.querySelector("div.play");
+                    
+                    container.before(vd);
+                    // container.before(fm)
+                    
+                    btnplay.addEventListener("click", e => {
+                        document.querySelector("div.blur").style.display = "none";
+                        container.style.backgroundImage = "none";
+                        container.style.backgroundSize = "none";
+                        container.style.backgroundRepeat = "none";
+                        btnplay.style.display = "none";
+                        btnplay.style.opacity = 0;
+                        container.style.backgroundColor = "none";
+                        container.style.backdropFilter = "none";
+                        vd.style.display = "block";
+                        audio.play();
+                        vd.play();
+                    });
+                    
+                    vd.addEventListener("load", e => { 
+                        vd.play(); 
+                    }) 
+                    
+                    vd.load(); 
+                    
+                    audio.addEventListener("load", e => {
+                        audio.play();
+                    })
+
+                    audio.load();
+                    
+                    container.addEventListener("load", e => {
+                        audio.play();
+                    })
+                    document.querySelector("video")?.addEventListener("load", e => {
+                        audio.play();
+                    })
+                    document.querySelector("video")?.addEventListener("readystatechange", e => {
+                        audio.play();
+                    })
+                    // container.addEventListener("click", e => {
+                    // })
+                }
+            })
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="blur"></div>
+        <div class="play"></div>
+    </div>
+</body>
+</html>

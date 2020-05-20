@@ -1,0 +1,167 @@
+!config.virtual_better_look true
+
+-- pkg
+include "cssbuiltin"
+include "cssbuiltin/anim"
+include "normalize"
+include "scrollbar"
+include "sfx"
+-- include "anim/aos"
+include "fonts/roboto"
+
+include "emojis"
+include "gh/direct"
+
+-- src
+include "./index.css"
+include "./index.mjs"
+
+div#container
+
+    div .wrapper .center
+
+        div .first-look
+
+            include "./navbar"
+
+            include "sliderimages"
+
+            div .greeting-box .center
+
+                [[
+
+                    local.writerAnim = function (elem) {
+
+                        let desc = $(elem)?.target || null;
+
+                        if (desc) {
+
+                            let context = `${desc.textContent}`;
+                            function writer() {
+
+                                for (let i in context) {
+
+                                    let c = context[i];
+
+                                    setTimeout(() => {
+
+                                        desc.textContent += c;
+                                    }, i * 1e2);
+                                }
+
+                                desc.textContent = "";
+                            }
+                            setInterval(writer, context.length * 1e2);
+                            writer();
+                        }
+                    }
+                ]]
+
+                div .greeting-letter
+
+                    span .title .center .anim-fade-up.anim-inf style=font-family:roboto_condensedbold; << Skulluglify
+
+                    span .description .italic .anim-fade-down style=font-family:roboto_condensedbold_italic; >> EOF
+                        Evil Developer, work on python
+                        java, javascript, c++ and more.
+                        join us on my discord.
+                    EOF
+
+                    [[
+
+                        local.writerAnim(element);
+
+                    ]]
+
+        div style=background-image:url([%getUrl("./assets/bgs.png")%]); .content .center
+
+            div .galleries .center style=font-family:roboto_condensedbold;
+
+                div .box .center .jessie
+
+                    span .anim-fade-up .anim-1s << Jessie
+
+                div .box .center .orion
+
+                    span .anim-fade-up .anim-2s << Orion
+
+                div .box .center .native
+
+                    span .anim-fade-up .anim-3s << Native
+
+            div .wrapper .center
+        
+                div style=background-image:url([%getUrl("./assets/unique.svg")%]); .unique .one
+
+                div style=background-image:url([%getUrl("./assets/unique.svg")%]); .unique .two
+
+                div style=background-image:url([%getUrl("./assets/jessie_logos.svg")%]); .logos
+            
+                div .wbreak .wrapper .center style=font-family:roboto_condensedbold;
+
+                    span .title .bold << Try With Jessie
+
+                    div .row .center
+
+                        span .subtitle .bold << simple, easy, organized
+                        span .emoji .u_growing_heart data-vendor=joypixels
+
+                    div .row .center
+                        
+                        span .emoji .u_glowing_star data-vendor=joypixels
+                        span .emoji .u_glowing_star data-vendor=joypixels
+                        span .emoji .u_glowing_star data-vendor=joypixels
+
+                    span .bold .p24 .roboto >> EOF
+                        Web Components, Easy create, Support Asynchronous, Modular, Lazy loader.
+                        Javascript Framewok, inspired by React and jQuery, but not same.
+                    EOF
+
+                    div .wbreak .bold .roboto .example-code
+
+                        [[
+
+                            (async () => {
+
+                                let exampleCode = $(element);
+                                let exampleCodeTarget = exampleCode?.target || exampleCode;
+                                let exampleCodeContent = await imports("./component.jessie");
+
+                                for (let lines of exampleCodeContent.split("\n")) {
+
+                                    let p = $("!pre");
+
+                                    p.target.classList.add("wbreak", "italic");
+
+                                    p.target.style.fontFamiliy = "roboto_condensedbold_italic";
+
+                                    if (lines.length > 0) p.target.textContent = lines;
+                                    else {
+
+                                        let br = $("!br");
+                                        exampleCode.append(br);
+                                        continue;
+                                    }
+
+                                    exampleCode.append(p);
+                                }
+
+                            })();
+                        ]]
+
+            div .reserve .center
+
+                div style=background-image:url([%getUrl("./assets/logo.png")%]); .logo
+
+                div .wrapper .center
+
+                    div .wrapper .sublogo .center
+
+                        div style=background-image:url([%getUrl("./assets/gh.svg")%]); .sublogo
+
+                        div data-name=skulluglify .gh_widget_button_follow
+
+                        div style=background-image:url([%getUrl("./assets/yt.svg")%]); .sublogo
+
+
+-- include "anim/aos/init"

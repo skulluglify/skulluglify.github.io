@@ -1,0 +1,58 @@
+@keyframes anim-fade-up {
+
+    from {
+
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes anim-fade-down {
+
+
+    from {
+
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.anim-1s { animation-duration: 1s !important; }
+.anim-2s { animation-duration: 2s !important; }
+.anim-3s { animation-duration: 3s !important; }
+.anim-4s { animation-duration: 4s !important; }
+.anim-5s { animation-duration: 5s !important; }
+.anim-6s { animation-duration: 6s !important; }
+.anim-7s { animation-duration: 7s !important; }
+
+.anim-fade-up {
+
+    animation-name: anim-fade-up;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-duration: 2s;
+
+}
+
+.anim-fade-down {
+
+    animation-name: anim-fade-down;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-duration: 2s;
+
+}
+
+.anim-inf {
+
+    animation-iteration-count: infinite;
+}

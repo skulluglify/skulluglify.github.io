@@ -1,0 +1,7 @@
+
+
+    source-set emoji_vendor_lst "./emojis_unique_vendor.lst"
+
+    include "./repositories"
+    include "./index.css"
+    include "./index.mjs"

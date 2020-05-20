@@ -1,0 +1,58 @@
+:root {
+
+    --height-gh-button-follow: 40px;
+}
+
+div.gh_content {
+
+    height: var(--height-gh-button-follow);
+    /* padding: 4px; */
+    color: white;
+    border-radius: calc(var(--height-gh-button-follow) / 2);
+    background-color: grey;
+
+    border: 2px solid black;
+
+    justify-content: space-between;
+    box-sizing: initial;
+}
+
+div.gh_content > div.gh_logo {
+
+    position: relative;
+
+    left: 0;
+
+    width: 32px;
+    height: 32px;
+
+    margin: 4px;
+
+    border-radius: 50%;
+}
+
+div.gh_content > div.gh_user {
+
+    position: relative;
+
+    margin-top: 0;
+    margin-left: 4px;
+    margin-bottom: 0;
+    margin-right: 4px;
+    
+}
+
+div.gh_content > div.gh_user_followers {
+
+    position: relative;
+
+    right: 0;
+
+    min-width: 32px;
+    height: 32px;
+
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-right: 12px;
+}

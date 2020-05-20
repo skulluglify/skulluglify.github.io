@@ -1,0 +1,45 @@
+<!DOCTYPE html public>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, minimum-scale=0.5, initial-scale=0.5, maximum-scale=0.5" />
+        <title>Jessie Demo Example!</title>
+        <style>
+            html, body, iframe {
+
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                text-decoration: none;
+                box-sizing: border-box;
+                overflow: hidden;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+
+            let iframe = document.createElement("iframe");
+            iframe.setAttribute("src", `index.html?viewport=yes&${location.search.slice(1)}`);
+            iframe.setAttribute("width", "100%");
+            iframe.setAttribute("height", "100%");
+            iframe.style.position = "fixed";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.right = "0";
+            iframe.style.bottom = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            document.body.append(iframe);
+            
+        </script>
+    </body>
+</html>

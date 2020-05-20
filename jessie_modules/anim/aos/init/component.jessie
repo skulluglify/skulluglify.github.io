@@ -1,0 +1,16 @@
+
+script >> EOF
+
+    (async function __async__() {
+
+        let aos = await fetch("https://unpkg.com/aos@latest/dist/aos.js")
+        let jss = await aos.text()
+
+        jss += ";AOS.init()"
+
+        Function(jss).call()
+
+    })()
+
+
+EOF

@@ -1,0 +1,6 @@
+!config.virtual_better_look true
+
+    
+    source-set sfx_source_hit_button ./assets/glass_hit_metal.wav audio/wav;codecs=vorbis
+    
+    include "./index.mjs"

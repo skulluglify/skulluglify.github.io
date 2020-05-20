@@ -1,0 +1,67 @@
+@import url(./text.css);
+
+*, 
+*::after, 
+*::before {
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+
+html, html > body {
+
+    width: 100vw;
+    height: 100vh;
+    /* -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none; */
+    user-select: none;
+    overflow: hidden;
+}
+
+.center {
+
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+
+    overflow: hidden;
+    
+}
+
+.strecth-row {
+
+    align-items: space-between;
+
+}
+
+.strecth-col, .strecth-column {
+
+    justify-content: space-between;
+
+}
+
+.row {
+    
+    flex-direction: row !important;
+}
+
+.emoji {
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
